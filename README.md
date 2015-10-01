@@ -30,12 +30,12 @@ This Playbook will setup:
 4. Install Git and Ansible with `sudo apt-get install ansible git`
 5. Clone this repository with `git clone https://github.com/Jdesk/hgv-deploy-full/`
 6. Move into `hgv-deploy-full`
-7. Edit the `hosts` file and change `yourhostname.com` to your host name. If you have more than one website that you want to install on this server add each on a new line.
-8. Edit the name of `yourhostname.com` file in the `host_vars` folder to your hostname. If you have more than one website that you want to install on this server copy the current one and name it the hostname of the website.
+7. Edit the `hosts` file and change `yourhostname.com` to your host name. If you have more than one website that you want to install on this server, create it within this file and add each on a new line.
+8. Edit the name of `yourhostname.com` file in the `host_vars` folder and change it to your hostname. (eg. nano ns1.jurisdesk.com) If you have more than one website you intend on installing on your freshly created server in the future, or to install on your server copy the current file and name it the hostname (aka domain name) not fully qualified domain name - you can set that in /etc/hosts and /etc/hostname.
 9. Change your sites specific information **including passwords** inside the hostname file inside the `host_vars` directory
-10. Run Ansible with `sudo ansible-playbook -i hosts playbook.yml -c local`. If you have any errors please open a new issue in this repository.
-11. Remove the cloned git directory from your server with `rm -rf hgv-deploy-full/`
-12. Run `/usr/bin/mysql_secure_installation` to install MySQL and secure it. Your root password will be blank by default
+10. Run `/usr/bin/mysql_secure_installation` to install MySQL and secure it. Your root password will be blank by default
+11. Run Ansible with `sudo ansible-playbook -i hosts playbook.yml -c local`. If you have any errors please open a new issue in this repository.
+12. Remove the cloned git directory from your server with `rm -rf hgv-deploy-full/`
 13. Restart Varnish and Nginx with: `sudo service varnish restart && sudo service nginx restart`
 14. You're good to go! A new WordPress install running HHVM and Varnish should be waiting for you at your hostname/s!
 
